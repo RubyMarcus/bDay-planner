@@ -10,41 +10,28 @@ import Foundation
 import Firebase
 
 class BirthdayItem {
-    
-    
-    /*
-    var ref: DatabaseReference!
+
+    //var ref: DatabaseReference!
     
     var firstname = ""
     var lastname = ""
     var fbKey = ""
     var birthdayDate = ""
     
+    var item : [BirthdayItem]?
+
     
-    
-    func SaveBirthday (datePicker : UIDatePicker, firstname : String, lastname : String, completion:
+    func SaveBirthday (item : BirthdayItem ,completion:
         @escaping (_ result: Bool) -> Void)
     {
-        ref = Database.database().reference()
+        //ref = Database.database().reference()
         
-        let newBirthday = BirthdayItem()
+        //let saveRef = ref.child("Birthdays").childByAutoId()
         
-        datePicker.datePickerMode = UIDatePickerMode.date
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd MMM yyyy"
-        let selectedDate = dateFormatter.string(from: datePicker.date)
-        
-        newBirthday.firstname = firstname
-        newBirthday.lastname = lastname
-        newBirthday.birthdayDate = selectedDate
-        
-        let saveRef = ref.child("Birthdays").childByAutoId()
-        
-        saveRef.child("Firstname").setValue(newBirthday.firstname)
-        saveRef.child("Lastname").setValue(newBirthday.lastname)
-        saveRef.child("BirthdayDate").setValue(newBirthday.birthdayDate)
-        
+        //saveRef.child("Firstname").setValue()
+        //saveRef.child("Lastname").setValue(newBirthday.lastname)
+        //saveRef.child("BirthdayDate").setValue(newBirthday.birthdayDate)
+ 
         completion(true)
     }
- */
 }

@@ -17,6 +17,7 @@
 		E9A7B782203D9EA4001E5C02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9A7B780203D9EA4001E5C02 /* LaunchScreen.storyboard */; };
 		E9F300A720624F3800D29ED7 /* BirthdayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F300A620624F3800D29ED7 /* BirthdayItem.swift */; };
 		E9F300A92062542C00D29ED7 /* SaveBirthdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F300A82062542C00D29ED7 /* SaveBirthdayViewController.swift */; };
+		E9F300AB2062919200D29ED7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F300AA2062919200D29ED7 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		E9A7B783203D9EA4001E5C02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9F300A620624F3800D29ED7 /* BirthdayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayItem.swift; sourceTree = "<group>"; };
 		E9F300A82062542C00D29ED7 /* SaveBirthdayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveBirthdayViewController.swift; sourceTree = "<group>"; };
+		E9F300AA2062919200D29ED7 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F0C5B6C01B28F581A4EEB9D7 /* Pods-BirthdayApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BirthdayApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BirthdayApp/Pods-BirthdayApp.debug.xcconfig"; sourceTree = "<group>"; };
 		FD2CA4CA7404CE4D309091E8 /* Pods_BirthdayApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BirthdayApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -71,6 +73,7 @@
 				95F69BD52059EC3D003BE502 /* LoggedInVC.swift */,
 				E9A7B779203D9EA4001E5C02 /* ViewController.swift */,
 				E9F300A82062542C00D29ED7 /* SaveBirthdayViewController.swift */,
+				E9F300AA2062919200D29ED7 /* DetailViewController.swift */,
 			);
 			name = Scripts;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				95F69BD62059EC3D003BE502 /* LoggedInVC.swift in Sources */,
 				E9F300A92062542C00D29ED7 /* SaveBirthdayViewController.swift in Sources */,
 				E9A7B77A203D9EA4001E5C02 /* ViewController.swift in Sources */,
+				E9F300AB2062919200D29ED7 /* DetailViewController.swift in Sources */,
 				E9A7B778203D9EA4001E5C02 /* AppDelegate.swift in Sources */,
 				E9F300A720624F3800D29ED7 /* BirthdayItem.swift in Sources */,
 			);

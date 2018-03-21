@@ -11,9 +11,7 @@ import FirebaseAuth
 
 class LoggedInVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    
-    
-    
+    var BirthdayList = BirthdayItem()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -31,8 +29,21 @@ class LoggedInVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        performSegue(withIdentifier: "detail", sender: indexPath.row)
+    }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if(segue.identifier == "detail")
+        {
+            let dest = segue.destination as! DetailViewController
+            
+            dest.tempItem = BirthdayList.item![sender as! Int]
+        }
+        
+    }
     
     
     // Account function

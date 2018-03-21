@@ -18,7 +18,7 @@ class SaveBirthdayViewController: UIViewController {
     
     @IBOutlet weak var datePicker: UIDatePicker!
     
-    
+    var BirthdayList = BirthdayItem()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,14 +31,45 @@ class SaveBirthdayViewController: UIViewController {
 
         guard let firstname = firstnameTextField.text, firstname != "" else {
         
-            let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+            let alert = UIAlertController(title: "Error", message: "Fyll i förnamn.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
             
             return
-        
+         
         }
-    
+        
+        guard let lastname = lastnameTextField.text, lastname != "" else {
+            
+            let alert = UIAlertController(title: "Error", message: "Fyll i efternamn.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+            return
+            
+        }
+        
+        let tempItem = BirthdayItem()
+        
+        tempItem.firstname = firstnameTextField.text!
+        tempItem.lastname = lastnameTextField.text!
+        
+        datePicker.datePickerMode = UIDatePickerMode.date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMM yyyy"
+        let selectedDate = dateFormatter.string(from: datePicker.date)
+        
+        tempItem.birthdayDate = selectedDate
+        
+        self.BirthdayList.SaveBirthday(item: tempItem, completion: {(result: Bool) in
+            
+            self.navigationController?.popViewController(animated: true)
+            
+            self.firstnameTextField.text = ""
+            self.lastnameTextField.text = ""
+        })
+        
+        
     }
 
 }
