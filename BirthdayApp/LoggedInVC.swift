@@ -12,10 +12,10 @@ import FirebaseAuth
 class LoggedInVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     
-    //Tableview functions
+    
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         
         return 5
         

@@ -188,10 +188,10 @@
             </objects>
             <point key="canvasLocation" x="1104.8" y="31.934032983508249"/>
         </scene>
-        <!--View Controller-->
+        <!--Save Birthday View Controller-->
         <scene sceneID="Wk7-pB-3Fh">
             <objects>
-                <viewController id="d8T-aO-dmn" sceneMemberID="viewController">
+                <viewController id="d8T-aO-dmn" customClass="SaveBirthdayViewController" customModule="BirthdayApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tze-oR-7H9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -241,6 +241,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="CreateBirthday:" destination="d8T-aO-dmn" eventType="touchUpInside" id="dTh-db-efy"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.8353100712" green="0.8353100712" blue="0.8353100712" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -262,6 +265,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GgZ-Kx-E2m"/>
                     </view>
+                    <connections>
+                        <outlet property="datePicker" destination="qIP-k4-xRm" id="Wln-HR-Ip8"/>
+                        <outlet property="firstnameTextField" destination="i8Q-Et-wvI" id="A39-yn-2FE"/>
+                        <outlet property="lastnameTextField" destination="9i2-ec-Hih" id="t5q-UK-92S"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tW3-E3-Y4O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
