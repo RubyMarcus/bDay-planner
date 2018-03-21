@@ -18,6 +18,7 @@
 		E9F300A720624F3800D29ED7 /* BirthdayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F300A620624F3800D29ED7 /* BirthdayItem.swift */; };
 		E9F300A92062542C00D29ED7 /* SaveBirthdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F300A82062542C00D29ED7 /* SaveBirthdayViewController.swift */; };
 		E9F300AB2062919200D29ED7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F300AA2062919200D29ED7 /* DetailViewController.swift */; };
+		E9F300AD20629B7C00D29ED7 /* BirthdayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F300AC20629B7C00D29ED7 /* BirthdayTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		E9F300A620624F3800D29ED7 /* BirthdayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayItem.swift; sourceTree = "<group>"; };
 		E9F300A82062542C00D29ED7 /* SaveBirthdayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveBirthdayViewController.swift; sourceTree = "<group>"; };
 		E9F300AA2062919200D29ED7 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		E9F300AC20629B7C00D29ED7 /* BirthdayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayTableViewCell.swift; sourceTree = "<group>"; };
 		F0C5B6C01B28F581A4EEB9D7 /* Pods-BirthdayApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BirthdayApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BirthdayApp/Pods-BirthdayApp.debug.xcconfig"; sourceTree = "<group>"; };
 		FD2CA4CA7404CE4D309091E8 /* Pods_BirthdayApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BirthdayApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				E9F300A620624F3800D29ED7 /* BirthdayItem.swift */,
+				E9F300AC20629B7C00D29ED7 /* BirthdayTableViewCell.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95F69BD62059EC3D003BE502 /* LoggedInVC.swift in Sources */,
+				E9F300AD20629B7C00D29ED7 /* BirthdayTableViewCell.swift in Sources */,
 				E9F300A92062542C00D29ED7 /* SaveBirthdayViewController.swift in Sources */,
 				E9A7B77A203D9EA4001E5C02 /* ViewController.swift in Sources */,
 				E9F300AB2062919200D29ED7 /* DetailViewController.swift in Sources */,

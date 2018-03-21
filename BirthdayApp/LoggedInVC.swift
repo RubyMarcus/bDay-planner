@@ -13,19 +13,38 @@ class LoggedInVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var BirthdayList = BirthdayItem()
     
+    @IBOutlet weak var BirthdayTableView: UITableView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        BirthdayList.LoadData(completion: {(result : Bool) in
+            
+            self.BirthdayTableView.reloadData()
+        })
+        
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 5
+        if let itemcount = BirthdayList.item?.count
+        {
+            return itemcount
+        }
+        return 0
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "BirthdayCell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BirthdayCell") as! BirthdayTableViewCell
         
-        cell?.textLabel?.text = "Test"
+        cell.nameLabel.text = "\(BirthdayList.item![indexPath.row].firstname) \(BirthdayList.item![indexPath.row].lastname)"
+
+        // Add daylabel.
         
-        return cell!
+        return cell
         
     }
     
@@ -59,3 +78,5 @@ class LoggedInVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         }
     }
 }
+
+
