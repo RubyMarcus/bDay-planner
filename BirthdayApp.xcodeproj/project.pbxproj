@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B1880C32BFE9A3FDF3049E2 /* Pods_BirthdayApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2CA4CA7404CE4D309091E8 /* Pods_BirthdayApp.framework */; };
+		9514E29A2056EE6100436FEC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9514E2992056EE6100436FEC /* GoogleService-Info.plist */; };
+		95F69BD62059EC3D003BE502 /* LoggedInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F69BD52059EC3D003BE502 /* LoggedInVC.swift */; };
 		E9A7B778203D9EA4001E5C02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A7B777203D9EA4001E5C02 /* AppDelegate.swift */; };
 		E9A7B77A203D9EA4001E5C02 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A7B779203D9EA4001E5C02 /* ViewController.swift */; };
 		E9A7B77D203D9EA4001E5C02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9A7B77B203D9EA4001E5C02 /* Main.storyboard */; };
@@ -15,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		249CF48808168D5B5F2434D6 /* Pods-BirthdayApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BirthdayApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-BirthdayApp/Pods-BirthdayApp.release.xcconfig"; sourceTree = "<group>"; };
+		9514E2992056EE6100436FEC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		95F69BD52059EC3D003BE502 /* LoggedInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInVC.swift; sourceTree = "<group>"; };
 		E9A7B774203D9EA4001E5C02 /* BirthdayApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BirthdayApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9A7B777203D9EA4001E5C02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9A7B779203D9EA4001E5C02 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +28,8 @@
 		E9A7B77E203D9EA4001E5C02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E9A7B781203D9EA4001E5C02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E9A7B783203D9EA4001E5C02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0C5B6C01B28F581A4EEB9D7 /* Pods-BirthdayApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BirthdayApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BirthdayApp/Pods-BirthdayApp.debug.xcconfig"; sourceTree = "<group>"; };
+		FD2CA4CA7404CE4D309091E8 /* Pods_BirthdayApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BirthdayApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +37,46 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B1880C32BFE9A3FDF3049E2 /* Pods_BirthdayApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F9D76BCFD6EBAE0B535EFE2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FD2CA4CA7404CE4D309091E8 /* Pods_BirthdayApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		507A09CF67772C932EB2222F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F0C5B6C01B28F581A4EEB9D7 /* Pods-BirthdayApp.debug.xcconfig */,
+				249CF48808168D5B5F2434D6 /* Pods-BirthdayApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E95A32B12062437600475548 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				95F69BD52059EC3D003BE502 /* LoggedInVC.swift */,
+				E9A7B779203D9EA4001E5C02 /* ViewController.swift */,
+			);
+			name = Scripts;
+			sourceTree = "<group>";
+		};
 		E9A7B76B203D9EA4001E5C02 = {
 			isa = PBXGroup;
 			children = (
 				E9A7B776203D9EA4001E5C02 /* BirthdayApp */,
 				E9A7B775203D9EA4001E5C02 /* Products */,
+				507A09CF67772C932EB2222F /* Pods */,
+				1F9D76BCFD6EBAE0B535EFE2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,11 +91,12 @@
 		E9A7B776203D9EA4001E5C02 /* BirthdayApp */ = {
 			isa = PBXGroup;
 			children = (
+				E95A32B12062437600475548 /* Scripts */,
 				E9A7B777203D9EA4001E5C02 /* AppDelegate.swift */,
-				E9A7B779203D9EA4001E5C02 /* ViewController.swift */,
 				E9A7B77B203D9EA4001E5C02 /* Main.storyboard */,
 				E9A7B77E203D9EA4001E5C02 /* Assets.xcassets */,
 				E9A7B780203D9EA4001E5C02 /* LaunchScreen.storyboard */,
+				9514E2992056EE6100436FEC /* GoogleService-Info.plist */,
 				E9A7B783203D9EA4001E5C02 /* Info.plist */,
 			);
 			path = BirthdayApp;
@@ -71,9 +109,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E9A7B786203D9EA4001E5C02 /* Build configuration list for PBXNativeTarget "BirthdayApp" */;
 			buildPhases = (
+				2818A2BF0C85DAF9A3125FF3 /* [CP] Check Pods Manifest.lock */,
 				E9A7B770203D9EA4001E5C02 /* Sources */,
 				E9A7B771203D9EA4001E5C02 /* Frameworks */,
 				E9A7B772203D9EA4001E5C02 /* Resources */,
+				CE2F5418AEBF482C875D75C1 /* [CP] Embed Pods Frameworks */,
+				D615D70A277D9317AF302924 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -126,16 +167,76 @@
 				E9A7B782203D9EA4001E5C02 /* LaunchScreen.storyboard in Resources */,
 				E9A7B77F203D9EA4001E5C02 /* Assets.xcassets in Resources */,
 				E9A7B77D203D9EA4001E5C02 /* Main.storyboard in Resources */,
+				9514E29A2056EE6100436FEC /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2818A2BF0C85DAF9A3125FF3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BirthdayApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CE2F5418AEBF482C875D75C1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BirthdayApp/Pods-BirthdayApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BirthdayApp/Pods-BirthdayApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D615D70A277D9317AF302924 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BirthdayApp/Pods-BirthdayApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E9A7B770203D9EA4001E5C02 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95F69BD62059EC3D003BE502 /* LoggedInVC.swift in Sources */,
 				E9A7B77A203D9EA4001E5C02 /* ViewController.swift in Sources */,
 				E9A7B778203D9EA4001E5C02 /* AppDelegate.swift in Sources */,
 			);
@@ -272,10 +373,11 @@
 		};
 		E9A7B787203D9EA4001E5C02 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0C5B6C01B28F581A4EEB9D7 /* Pods-BirthdayApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9CM97MXBP8;
+				DEVELOPMENT_TEAM = 5QP4D5N9N6;
 				INFOPLIST_FILE = BirthdayApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.marcuslundgren.BirthdayApp;
@@ -287,10 +389,11 @@
 		};
 		E9A7B788203D9EA4001E5C02 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 249CF48808168D5B5F2434D6 /* Pods-BirthdayApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9CM97MXBP8;
+				DEVELOPMENT_TEAM = 5QP4D5N9N6;
 				INFOPLIST_FILE = BirthdayApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.marcuslundgren.BirthdayApp;

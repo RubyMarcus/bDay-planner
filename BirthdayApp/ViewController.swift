@@ -7,22 +7,53 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ViewController: UIViewController {
-
+    
+    
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+
+    @IBAction func createAccountTapped(_ sender: Any) {
         
-        print("Test")
-        print("Secound test")
-        // Do any additional setup after loading the view, typically from a nib.
+        if let email = emailTextField.text, let password = passwordTextField.text
+        {
+            Auth.auth().createUser(withEmail: email, password: password, completion: { user, Error in
+              
+                if let firebaseError = Error{
+                    print(firebaseError.localizedDescription)
+                    return
+                }
+                print("Success")
+            })
+        }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func loginTapped(_ sender: Any) {
+        
+        if let email = emailTextField.text, let password = passwordTextField.text
+        {
+            Auth.auth().signIn(withEmail: email, password: password, completion: { user, error in
+                
+                if let firebaseError = error{
+                    print(firebaseError.localizedDescription)
+                    return
+                }
+                self.presentLoggedInScreen()
+            })
+        }
     }
-
-
+    
+    func presentLoggedInScreen(){
+        let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+    let loggedInVC:LoggedInVC = storyboard.instantiateViewController(withIdentifier: "LoggedInVC") as! LoggedInVC
+        self.present(loggedInVC, animated: true, completion: nil)
+    }
 }
 
