@@ -43,15 +43,19 @@ class ViewController: UIViewController {
                     print(firebaseError.localizedDescription)
                     return
                 }
-                self.presentLoggedInScreen()
+                
+                self.dismiss(animated: true, completion: nil)
+                //self.presentLoggedInScreen()
             })
         }
     }
     
+    /*
     func presentLoggedInScreen(){
         let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     let loggedInVC:LoggedInVC = storyboard.instantiateViewController(withIdentifier: "LoggedInVC") as! LoggedInVC
         self.present(loggedInVC, animated: true, completion: nil)
     }
+    */
 }
 

@@ -24,6 +24,7 @@ class BirthdayTableViewCell: UITableViewCell {
         
     }
     
+    /*
     func CellInfo(tempItem : BirthdayItem)
     {
         nameLabel.text = "\(tempItem.firstname) \(tempItem.lastname)"
@@ -34,6 +35,7 @@ class BirthdayTableViewCell: UITableViewCell {
         
         
     }
+    */
 
 }
 

@@ -15,9 +15,7 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var datePicker: UIDatePicker!
     
-    @IBOutlet weak var SaveButton: UIButton!
     @IBOutlet weak var EditButton: UIButton!
-    
     
     var tempItem = BirthdayItem()
     
@@ -27,7 +25,14 @@ class DetailViewController: UIViewController {
         firstnameTextField.text = tempItem.firstname
         lastnameTextField.text = tempItem.lastname
         
-        //Load date and convert to datepicker.
+        let dateString = tempItem.birthdayDate
+        let df = DateFormatter()
+        df.dateFormat = "dd MMM yyyy"
+        let date = df.date(from: dateString)
+        if let unwrappedDate = date {
+            datePicker.setDate(unwrappedDate, animated: false)
+        }
+
         //Get days between two dates.
         
         // Do any additional setup after loading the view.
@@ -35,27 +40,61 @@ class DetailViewController: UIViewController {
     
     @IBAction func EditTrue(_ sender: Any) {
         
-        EditButton.isHidden = true
-        
-        SaveButton.isHidden = false
-        
-    }
-    
-    @IBAction func SaveButton(_ sender: Any) {
-        
-        self.tempItem.SaveBirthday(item: tempItem, completion: {(result: Bool) in
+        if(EditButton.titleLabel?.text == "Edit")
+        {
             
-            self.EditButton.isHidden = false
+            EditButton.setTitle("Save", for: .normal)
             
-            self.SaveButton.isHidden = true
-        })
+            firstnameTextField.isUserInteractionEnabled = true
+            lastnameTextField.isUserInteractionEnabled = true
+            datePicker.isUserInteractionEnabled = true
+            
+        }
+        else if(EditButton.titleLabel?.text == "Save")
+        {
+            
+            guard let firstname = firstnameTextField.text, firstname != "" else {
+                
+                let alert = UIAlertController(title: "Error", message: "Fyll i förnamn.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                
+                return
+                
+            }
+            
+            guard let lastname = lastnameTextField.text, lastname != "" else {
+                
+                let alert = UIAlertController(title: "Error", message: "Fyll i efternamn.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                
+                return
+                
+            }
+            
+            tempItem.firstname = firstnameTextField.text!
+            tempItem.lastname = lastnameTextField.text!
+            
+            datePicker.datePickerMode = UIDatePickerMode.date
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd MMM yyyy"
+            let selectedDate = dateFormatter.string(from: datePicker.date)
+            
+            tempItem.birthdayDate = selectedDate
+            
+            
+            tempItem.SaveBirthday(item: tempItem, completion: {(result: Bool) in
+                
+                self.EditButton.setTitle("Edit", for: .normal)
+                
+                self.firstnameTextField.isUserInteractionEnabled = false
+                self.lastnameTextField.isUserInteractionEnabled = false
+                self.datePicker.isUserInteractionEnabled = false
+                
+            })
+            
+        }
     }
-    
-    
-    
-    
-    
-    
-    
-    
+
 }
