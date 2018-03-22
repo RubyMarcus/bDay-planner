@@ -8,10 +8,11 @@
 
 import Foundation
 import Firebase
+import FirebaseDatabase
 
 class BirthdayItem {
-
-    //var ref: DatabaseReference!
+    
+    var ref: DatabaseReference!
     
     var firstname = ""
     var lastname = ""
@@ -24,23 +25,47 @@ class BirthdayItem {
     func SaveBirthday (item : BirthdayItem ,completion:
         @escaping (_ result: Bool) -> Void)
     {
-        //ref = Database.database().reference()
+        ref = Database.database().reference()
         
-        //let saveRef = ref.child("Birthdays").childByAutoId()
+        let key = ""
         
-        //saveRef.child("Firstname").setValue()
-        //saveRef.child("Lastname").setValue(newBirthday.lastname)
-        //saveRef.child("BirthdayDate").setValue(newBirthday.birthdayDate)
+        if key == item.fbKey
+        {
+            var saveRef = ref.child("Users").child(Auth.auth().currentUser!.uid)
+            
+            saveRef = saveRef.ref.child("Birthdays")
+            
+            saveRef = saveRef.childByAutoId()
+            
+            saveRef.child("Firstname").setValue(item.firstname)
+            saveRef.child("Lastname").setValue(item.lastname)
+            saveRef.child("BirthdayDate").setValue(item.birthdayDate)
+            
+        } else {
+            
+            var saveRef = ref.child("Users").child(Auth.auth().currentUser!.uid)
+            
+            saveRef = ref.child("Birthdays").child(item.fbKey)
+            
+            saveRef.child("Firstname").setValue(item.firstname)
+            saveRef.child("Lastname").setValue(item.lastname)
+            saveRef.child("BirthdayDate").setValue(item.birthdayDate)
+            
+            
+        }
+        
  
         completion(true)
     }
     
     func LoadData (completion: @escaping (_ result: Bool) -> Void)
     {
-        /*
         ref = Database.database().reference()
         
-        ref.child("Birthdays").observeSingleEvent(of: .value) { (snapshot) in
+        var fbLoadfrom = ref.child("Users")
+        fbLoadfrom = fbLoadfrom.child(Auth.auth().currentUser!.uid)
+        
+        fbLoadfrom.child("Birthdays").observeSingleEvent(of: .value) { (snapshot) in
             
             self.item = [BirthdayItem]()
             
@@ -56,7 +81,7 @@ class BirthdayItem {
                 
                 tempBirthday.firstname = birthdayDict.value(forKey: "Firstname") as! String
                 tempBirthday.lastname = birthdayDict.value(forKey: "Lastname") as! String
-                tempBirthday.datePicker = birthdayDict.value(forKey: "BirthdayDate") as! String
+                tempBirthday.birthdayDate = birthdayDict.value(forKey: "BirthdayDate") as! String
                 
                 self.item?.append(tempBirthday)
             }
@@ -64,6 +89,6 @@ class BirthdayItem {
             completion(true)
             
         }
- */
+ 
     }
 }

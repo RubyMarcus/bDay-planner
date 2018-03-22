@@ -28,7 +28,9 @@ class BirthdayTableViewCell: UITableViewCell {
     {
         nameLabel.text = "\(tempItem.firstname) \(tempItem.lastname)"
         
+        //Convert to days....
         
+        //dayLabel.text =
         
         
     }

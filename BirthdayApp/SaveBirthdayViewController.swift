@@ -12,7 +12,6 @@ class SaveBirthdayViewController: UIViewController {
 
     var birthdayList = BirthdayItem()
     
-    
     @IBOutlet weak var firstnameTextField: UITextField!
     @IBOutlet weak var lastnameTextField: UITextField!
     

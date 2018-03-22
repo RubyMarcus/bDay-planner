@@ -12,18 +12,34 @@ import FirebaseAuth
 class LoggedInVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var BirthdayList = BirthdayItem()
+    var testCell = BirthdayTableViewCell()
     
     @IBOutlet weak var BirthdayTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        BirthdayList.LoadData(completion: {(result : Bool) in
-            
-            self.BirthdayTableView.reloadData()
-        })
-        
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        if(Auth.auth().currentUser == nil)
+        {
+            print("INTE INLOGGAD")
+            performSegue(withIdentifier: "login", sender: nil)
+        } else {
+            print("INLOGGAD")
+            print(Auth.auth().currentUser?.uid)
+            
+            BirthdayList.LoadData(completion: {(result : Bool) in
+                
+                self.navigationItem.title = Auth.auth().currentUser?.email
+                
+                self.BirthdayTableView.reloadData()
+            })
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -40,8 +56,10 @@ class LoggedInVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "BirthdayCell") as! BirthdayTableViewCell
         
-        cell.nameLabel.text = "\(BirthdayList.item![indexPath.row].firstname) \(BirthdayList.item![indexPath.row].lastname)"
+        //self.testCell.CellInfo(tempItem: BirthdayList.item![indexPath.row])
 
+        cell.nameLabel.text = "\(BirthdayList.item![indexPath.row].firstname)  \(BirthdayList.item![indexPath.row].lastname)"
+        
         // Add daylabel.
         
         return cell
@@ -66,6 +84,7 @@ class LoggedInVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
     // Account function
+    
     
     @IBAction func logoutTapped(_ sender: Any) {
         do{

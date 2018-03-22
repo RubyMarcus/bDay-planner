@@ -27,6 +27,9 @@ class DetailViewController: UIViewController {
         firstnameTextField.text = tempItem.firstname
         lastnameTextField.text = tempItem.lastname
         
+        //Load date and convert to datepicker.
+        //Get days between two dates.
+        
         // Do any additional setup after loading the view.
     }
     
