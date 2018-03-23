@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qLG-ZG-NEj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -273,12 +273,6 @@
                                     <action selector="EditTrue:" destination="kKi-Ub-Ouf" eventType="touchUpInside" id="HMm-pg-fbi"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="250 days " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="khs-9o-kx1">
-                                <rect key="frame" x="0.0" y="377" width="375" height="230"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.83440762758255005" green="0.83504468202590942" blue="0.83450621366500854" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -287,12 +281,8 @@
                             <constraint firstItem="rDp-Xv-Bqm" firstAttribute="trailing" secondItem="SSg-c8-Gry" secondAttribute="trailing" constant="16" id="5VK-pg-fD8"/>
                             <constraint firstItem="6cA-qK-gEh" firstAttribute="leading" secondItem="rDp-Xv-Bqm" secondAttribute="leading" constant="16" id="COP-Ha-m3H"/>
                             <constraint firstItem="HtM-hO-MJ9" firstAttribute="bottom" secondItem="rDp-Xv-Bqm" secondAttribute="bottom" id="Gm4-Qq-3v3"/>
-                            <constraint firstItem="khs-9o-kx1" firstAttribute="top" secondItem="deZ-mx-ZgV" secondAttribute="bottom" id="PCa-cD-glG"/>
-                            <constraint firstItem="HtM-hO-MJ9" firstAttribute="top" secondItem="khs-9o-kx1" secondAttribute="bottom" id="S4P-3w-NBB"/>
                             <constraint firstItem="SSg-c8-Gry" firstAttribute="leading" secondItem="rDp-Xv-Bqm" secondAttribute="leading" constant="16" id="WmV-Nl-Ubf"/>
-                            <constraint firstItem="khs-9o-kx1" firstAttribute="leading" secondItem="rDp-Xv-Bqm" secondAttribute="leading" id="XEe-Ew-GO6"/>
                             <constraint firstItem="HtM-hO-MJ9" firstAttribute="leading" secondItem="rDp-Xv-Bqm" secondAttribute="leading" id="dyj-1m-eTW"/>
-                            <constraint firstItem="rDp-Xv-Bqm" firstAttribute="trailing" secondItem="khs-9o-kx1" secondAttribute="trailing" id="fUp-7U-U1J"/>
                             <constraint firstItem="rDp-Xv-Bqm" firstAttribute="trailing" secondItem="CMf-vc-l1p" secondAttribute="trailing" constant="16" id="gxX-b7-O7N"/>
                             <constraint firstItem="rDp-Xv-Bqm" firstAttribute="trailing" secondItem="6cA-qK-gEh" secondAttribute="trailing" constant="16" id="ih7-z4-sLW"/>
                             <constraint firstItem="SSg-c8-Gry" firstAttribute="top" secondItem="6cA-qK-gEh" secondAttribute="bottom" constant="10" id="kje-8m-QyV"/>
