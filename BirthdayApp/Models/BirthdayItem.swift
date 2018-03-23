@@ -29,6 +29,8 @@ class BirthdayItem {
         
         let key = ""
         
+        print(item.fbKey)
+        
         if key == item.fbKey
         {
             var saveRef = ref.child("Users").child(Auth.auth().currentUser!.uid)
@@ -45,12 +47,11 @@ class BirthdayItem {
             
             var saveRef = ref.child("Users").child(Auth.auth().currentUser!.uid)
             
-            saveRef = ref.child("Birthdays").child(item.fbKey)
+            saveRef = saveRef.child("Birthdays").child(item.fbKey)
             
             saveRef.child("Firstname").setValue(item.firstname)
             saveRef.child("Lastname").setValue(item.lastname)
             saveRef.child("BirthdayDate").setValue(item.birthdayDate)
-            
             
         }
         

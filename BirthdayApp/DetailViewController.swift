@@ -21,13 +21,13 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         firstnameTextField.text = tempItem.firstname
         lastnameTextField.text = tempItem.lastname
         
         let dateString = tempItem.birthdayDate
         let df = DateFormatter()
-        df.dateFormat = "dd MMM yyyy"
+        df.dateFormat = "dd.MM.yyyy"
         let date = df.date(from: dateString)
         if let unwrappedDate = date {
             datePicker.setDate(unwrappedDate, animated: false)
@@ -78,7 +78,7 @@ class DetailViewController: UIViewController {
             
             datePicker.datePickerMode = UIDatePickerMode.date
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd MMM yyyy"
+            dateFormatter.dateFormat = "dd.MM.yyyy"
             let selectedDate = dateFormatter.string(from: datePicker.date)
             
             tempItem.birthdayDate = selectedDate
@@ -92,6 +92,7 @@ class DetailViewController: UIViewController {
                 self.lastnameTextField.isUserInteractionEnabled = false
                 self.datePicker.isUserInteractionEnabled = false
                 
+                self.navigationController?.popViewController(animated: true)
             })
             
         }

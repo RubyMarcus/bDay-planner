@@ -52,13 +52,61 @@ class LoggedInVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
     }
     
+    func GetCurrentDate () -> Date
+    {
+        let date = Date()
+        let formatter = DateFormatter()
+        
+        formatter.dateFormat = "dd.MM.yyyy"
+        
+        let currentDate = formatter.string(from: date)
+        
+        return date
+    }
+    
+    func GetCurrentYear () -> String
+    {
+        
+        let date = Date()
+        
+        let yearString = date.getYear()
+        
+        return yearString
+        
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "BirthdayCell") as! BirthdayTableViewCell
-        
-        //self.testCell.CellInfo(tempItem: BirthdayList.item![indexPath.row])
 
         cell.nameLabel.text = "\(BirthdayList.item![indexPath.row].firstname)  \(BirthdayList.item![indexPath.row].lastname)"
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        guard let date = dateFormatter.date(from: BirthdayList.item![indexPath.row].birthdayDate) else {
+            fatalError("ERROR: Date conversion failed due to mismatched format.")
+        }
+        
+        // Changing the year
+        
+        
+        print(GetCurrentYear())
+        
+        
+        
+        
+        
+        
+        let calendar = NSCalendar.current
+        
+        // Replace the hour (time) of both dates with 00:00
+        let date1 = calendar.startOfDay(for: date)
+        let date2 = calendar.startOfDay(for: GetCurrentDate())
+        
+        let components = calendar.dateComponents([.day], from: date1, to: date2)
+        
+        print(components)
+        
         
         // Add daylabel.
         
@@ -98,6 +146,17 @@ class LoggedInVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             print("There was a problem logging out")
         }
     }
+}
+
+extension Date {
+    
+    func getYear() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY"
+        let strYear = dateFormatter.string(from: self)
+        return strYear
+    }
+    
 }
 
 

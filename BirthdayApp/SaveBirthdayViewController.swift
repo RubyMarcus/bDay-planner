@@ -55,7 +55,7 @@ class SaveBirthdayViewController: UIViewController {
         
         datePicker.datePickerMode = UIDatePickerMode.date
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd MMM yyyy"
+        dateFormatter.dateFormat = "dd MM yyyy"
         let selectedDate = dateFormatter.string(from: datePicker.date)
         
         tempItem.birthdayDate = selectedDate
