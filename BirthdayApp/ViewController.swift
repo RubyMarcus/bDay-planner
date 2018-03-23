@@ -12,12 +12,19 @@ import FirebaseAuth
 class ViewController: UIViewController {
     
     
+    @IBOutlet weak var notesTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+   
+        let stringKey = nsuse
+    
+    
     }
+    
+    
 
     @IBAction func createAccountTapped(_ sender: Any) {
         
@@ -56,6 +63,10 @@ class ViewController: UIViewController {
     let loggedInVC:LoggedInVC = storyboard.instantiateViewController(withIdentifier: "LoggedInVC") as! LoggedInVC
         self.present(loggedInVC, animated: true, completion: nil)
     }
-    */
+*/
+    
+    @IBAction func saveText(_ sender: Any) {
+    }
+    
 }
 

@@ -73,18 +73,17 @@ class LoggedInVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         let endIndex = birthdayDate.index(birthdayDate.endIndex, offsetBy: -4)
         
+        var birthdayYear = birthdayDate.substring(from: endIndex)
+        
         var truncated = birthdayDate.substring(to: endIndex)
         
         truncated = truncated + GetCurrentYear()
-        
-        print(truncated)
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
         guard let date = dateFormatter.date(from: truncated) else {
             fatalError("ERROR: Date conversion failed due to mismatched format.")
         }
-        
         
         let calendar = NSCalendar.current
         
@@ -100,10 +99,45 @@ class LoggedInVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         let postiveDays = days.magnitude
         
-        cell.dayLabel.text = String(describing: postiveDays)
+        var age = Int(GetCurrentYear())! % Int(birthdayYear)!
+        
+        /*
+        if(postiveDays != 0)
+        {
+            switch age {
+            case 0:
+                age = 1
+                strYear = "year"
+            case 2...200:
+                strYear = "years"
+            default:
+                strYear = "years"
+            }
+            
+            cell.ageNDayLabel.text = "\(age) \(strYear) in \(postiveDays) \(strDay)"
+        }
+        else
+        {
+            cell.ageNDayLabel.text = strDay
+        }
+        */
+        
+        cell.daysLabel.text = "in \(postiveDays) \(getstrDays(days: Int(postiveDays)))"
         
         return cell
         
+    }
+    
+    func getstrDays (days : Int) -> String
+    {
+        switch days  {
+        case 1:
+            return "day"
+        case 2...370:
+            return "days"
+        default:
+            return "Happy Birthday"
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
