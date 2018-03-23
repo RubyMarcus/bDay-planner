@@ -52,18 +52,6 @@ class LoggedInVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
     }
     
-    func GetCurrentDate () -> Date
-    {
-        let date = Date()
-        let formatter = DateFormatter()
-        
-        formatter.dateFormat = "dd.MM.yyyy"
-        
-        let currentDate = formatter.string(from: date)
-        
-        return date
-    }
-    
     func GetCurrentYear () -> String
     {
         
@@ -81,34 +69,38 @@ class LoggedInVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
         cell.nameLabel.text = "\(BirthdayList.item![indexPath.row].firstname)  \(BirthdayList.item![indexPath.row].lastname)"
         
+        let birthdayDate = BirthdayList.item![indexPath.row].birthdayDate
+        
+        let endIndex = birthdayDate.index(birthdayDate.endIndex, offsetBy: -4)
+        
+        var truncated = birthdayDate.substring(to: endIndex)
+        
+        truncated = truncated + GetCurrentYear()
+        
+        print(truncated)
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
-        guard let date = dateFormatter.date(from: BirthdayList.item![indexPath.row].birthdayDate) else {
+        guard let date = dateFormatter.date(from: truncated) else {
             fatalError("ERROR: Date conversion failed due to mismatched format.")
         }
-        
-        // Changing the year
-        
-        
-        print(GetCurrentYear())
-        
-        
-        
-        
         
         
         let calendar = NSCalendar.current
         
         // Replace the hour (time) of both dates with 00:00
         let date1 = calendar.startOfDay(for: date)
-        let date2 = calendar.startOfDay(for: GetCurrentDate())
+        let date2 = calendar.startOfDay(for: Date())
         
         let components = calendar.dateComponents([.day], from: date1, to: date2)
         
-        print(components)
-        
-        
         // Add daylabel.
+        
+        let days = components.day!
+        
+        let postiveDays = days.magnitude
+        
+        cell.dayLabel.text = String(describing: postiveDays)
         
         return cell
         
