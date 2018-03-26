@@ -42,15 +42,7 @@ class DetailViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    @IBAction func didClick(_ sender: Any) {
-        
-        if let text = txtAddText.text{
-            if text == "" {
-                return
-            }
-            txtList.text.append("\(text)\n")
-}
-}
+
     
     
     
