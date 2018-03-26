@@ -18,10 +18,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-   
-        let stringKey = nsuse
-    
-    
     }
     
     
@@ -66,6 +62,7 @@ class ViewController: UIViewController {
 */
     
     @IBAction func saveText(_ sender: Any) {
+        saveText(notesTextField)
     }
     
 }

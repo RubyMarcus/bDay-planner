@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		2B1880C32BFE9A3FDF3049E2 /* Pods_BirthdayApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2CA4CA7404CE4D309091E8 /* Pods_BirthdayApp.framework */; };
 		9514E29A2056EE6100436FEC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9514E2992056EE6100436FEC /* GoogleService-Info.plist */; };
+		95F5B5EC2066CF5700417163 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F5B5EB2066CF5700417163 /* ViewController.swift */; };
 		95F69BD62059EC3D003BE502 /* LoggedInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F69BD52059EC3D003BE502 /* LoggedInVC.swift */; };
 		E9A7B778203D9EA4001E5C02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A7B777203D9EA4001E5C02 /* AppDelegate.swift */; };
-		E9A7B77A203D9EA4001E5C02 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A7B779203D9EA4001E5C02 /* ViewController.swift */; };
 		E9A7B77D203D9EA4001E5C02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9A7B77B203D9EA4001E5C02 /* Main.storyboard */; };
 		E9A7B77F203D9EA4001E5C02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9A7B77E203D9EA4001E5C02 /* Assets.xcassets */; };
 		E9A7B782203D9EA4001E5C02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9A7B780203D9EA4001E5C02 /* LaunchScreen.storyboard */; };
@@ -24,10 +24,10 @@
 /* Begin PBXFileReference section */
 		249CF48808168D5B5F2434D6 /* Pods-BirthdayApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BirthdayApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-BirthdayApp/Pods-BirthdayApp.release.xcconfig"; sourceTree = "<group>"; };
 		9514E2992056EE6100436FEC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		95F5B5EB2066CF5700417163 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = BirthdayApp/ViewController.swift; sourceTree = SOURCE_ROOT; };
 		95F69BD52059EC3D003BE502 /* LoggedInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInVC.swift; sourceTree = "<group>"; };
 		E9A7B774203D9EA4001E5C02 /* BirthdayApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BirthdayApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9A7B777203D9EA4001E5C02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E9A7B779203D9EA4001E5C02 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E9A7B77C203D9EA4001E5C02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E9A7B77E203D9EA4001E5C02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E9A7B781203D9EA4001E5C02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -73,7 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				95F69BD52059EC3D003BE502 /* LoggedInVC.swift */,
-				E9A7B779203D9EA4001E5C02 /* ViewController.swift */,
+				95F5B5EB2066CF5700417163 /* ViewController.swift */,
 				E9F300A82062542C00D29ED7 /* SaveBirthdayViewController.swift */,
 				E9F300AA2062919200D29ED7 /* DetailViewController.swift */,
 			);
@@ -261,8 +261,8 @@
 				95F69BD62059EC3D003BE502 /* LoggedInVC.swift in Sources */,
 				E9F300AD20629B7C00D29ED7 /* BirthdayTableViewCell.swift in Sources */,
 				E9F300A92062542C00D29ED7 /* SaveBirthdayViewController.swift in Sources */,
-				E9A7B77A203D9EA4001E5C02 /* ViewController.swift in Sources */,
 				E9F300AB2062919200D29ED7 /* DetailViewController.swift in Sources */,
+				95F5B5EC2066CF5700417163 /* ViewController.swift in Sources */,
 				E9A7B778203D9EA4001E5C02 /* AppDelegate.swift in Sources */,
 				E9F300A720624F3800D29ED7 /* BirthdayItem.swift in Sources */,
 			);

@@ -9,7 +9,11 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-
+    
+    @IBOutlet weak var txtAddText: UITextField!
+    @IBOutlet weak var txtList: UITextView!
+    
+    
     @IBOutlet weak var firstnameTextField: UITextField!
     @IBOutlet weak var lastnameTextField: UITextField!
     
@@ -37,8 +41,21 @@ class DetailViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
+
+    @IBAction func didClick(_ sender: Any) {
+        
+        if let text = txtAddText.text{
+            if text == "" {
+                return
+            }
+            txtList.text.append("\(text)\n")
+}
+}
     
-    @IBAction func EditTrue(_ sender: Any) {
+    
+    
+        @IBAction func EditTrue(_ sender: Any) {
+        
         
         if(EditButton.titleLabel?.text == "Edit")
         {
@@ -97,5 +114,7 @@ class DetailViewController: UIViewController {
             
         }
     }
-
+    
 }
+
+
