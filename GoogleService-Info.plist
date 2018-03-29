@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>91966001293-ppl7ei84ekcbuoev0pu2oqb3de01u3rd.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.91966001293-ppl7ei84ekcbuoev0pu2oqb3de01u3rd</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBtdy-NQ26ce1pAFjLe38tAjyM0gcDtHso</string>
+	<key>GCM_SENDER_ID</key>
+	<string>91966001293</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.marcuslundgren.BirthdayApp</string>
+	<key>PROJECT_ID</key>
+	<string>fir-birthdayapp</string>
+	<key>STORAGE_BUCKET</key>
+	<string>fir-birthdayapp.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:91966001293:ios:f3467dfef46193ce</string>
+	<key>DATABASE_URL</key>
+	<string>https://fir-birthdayapp.firebaseio.com</string>
+</dict>
+</plist>

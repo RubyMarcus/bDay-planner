@@ -18,9 +18,40 @@ class BirthdayItem {
     var lastname = ""
     var fbKey = ""
     var birthdayDate = ""
+    var comment = ""
     
     var item : [BirthdayItem]?
 
+    func deleteItem (item : BirthdayItem, completion: @escaping (_ result: Bool) -> Void)
+    {
+        
+        ref = Database.database().reference()
+        
+        var deleteRef = ref.child("Users").child(Auth.auth().currentUser!.uid)
+        
+        deleteRef.child("Birthdays").observeSingleEvent(of: .value) { (snapshot) in
+            
+            self.item = [BirthdayItem]()
+            
+            for birthday in snapshot.children
+            {
+                let loopingBirthday = birthday as! DataSnapshot
+                
+                print(loopingBirthday.key)
+                
+                if(item.fbKey == loopingBirthday.key)
+                {
+                    print("test")
+                    
+                    deleteRef = deleteRef.ref.child("Birthdays")
+                    
+                    deleteRef.ref.child(item.fbKey).removeValue()
+                    
+                    completion(true)
+                }
+            }
+        }
+    }
     
     func SaveBirthday (item : BirthdayItem ,completion:
         @escaping (_ result: Bool) -> Void)
@@ -42,6 +73,7 @@ class BirthdayItem {
             saveRef.child("Firstname").setValue(item.firstname)
             saveRef.child("Lastname").setValue(item.lastname)
             saveRef.child("BirthdayDate").setValue(item.birthdayDate)
+            saveRef.child("Comment").setValue(item.comment)
             
         } else {
             
@@ -52,6 +84,7 @@ class BirthdayItem {
             saveRef.child("Firstname").setValue(item.firstname)
             saveRef.child("Lastname").setValue(item.lastname)
             saveRef.child("BirthdayDate").setValue(item.birthdayDate)
+            saveRef.child("Comment").setValue(item.comment)
             
         }
         
@@ -61,6 +94,7 @@ class BirthdayItem {
     
     func LoadData (completion: @escaping (_ result: Bool) -> Void)
     {
+        
         ref = Database.database().reference()
         
         var fbLoadfrom = ref.child("Users")
@@ -83,6 +117,7 @@ class BirthdayItem {
                 tempBirthday.firstname = birthdayDict.value(forKey: "Firstname") as! String
                 tempBirthday.lastname = birthdayDict.value(forKey: "Lastname") as! String
                 tempBirthday.birthdayDate = birthdayDict.value(forKey: "BirthdayDate") as! String
+                tempBirthday.comment = birthdayDict.value(forKey: "Comment") as! String
                 
                 self.item?.append(tempBirthday)
             }

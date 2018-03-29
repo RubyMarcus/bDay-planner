@@ -10,6 +10,8 @@ import UIKit
 
 class SaveBirthdayViewController: UIViewController {
 
+    var reminder: Reminder?
+    
     var birthdayList = BirthdayItem()
     
     @IBOutlet weak var firstnameTextField: UITextField!
@@ -21,7 +23,7 @@ class SaveBirthdayViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
 
@@ -66,6 +68,37 @@ class SaveBirthdayViewController: UIViewController {
             
             self.firstnameTextField.text = ""
             self.lastnameTextField.text = ""
+            
+            let gregorian = Calendar(identifier: .gregorian)
+            var components = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: self.datePicker.date)
+            
+            // Change the time to 9:30:00 in your locale
+            // If date is grater than current date change year
+            
+            components.year = 2018
+            components.hour = 08
+            components.minute = 00
+            components.second = 00
+            
+            let date = gregorian.date(from: components)!
+            
+            let name = "\(tempItem.firstname) \(tempItem.lastname)"
+            
+            let time = date
+            
+            let notification = UILocalNotification()
+            notification.alertTitle = "Birthday Reminder"
+            notification.alertBody = "Today is \(tempItem.firstname) \(tempItem.lastname)'s birthday!"
+            notification.fireDate = time
+            notification.soundName = UILocalNotificationDefaultSoundName
+            
+            UIApplication.shared.scheduleLocalNotification(notification)
+            
+            self.reminder = Reminder(name: name, time: time, notification: notification)
+            
+            LoggedInVC.reminders.append(self.reminder!)
+            
+            LoggedInVC.saveReminders()
         })
         
         

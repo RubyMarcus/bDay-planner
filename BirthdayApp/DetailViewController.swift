@@ -20,6 +20,9 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     
     @IBOutlet weak var EditButton: UIButton!
+
+    @IBOutlet var commentTextField: UITextView!
+    
     
     var tempItem = BirthdayItem()
     
@@ -28,6 +31,8 @@ class DetailViewController: UIViewController {
     
         firstnameTextField.text = tempItem.firstname
         lastnameTextField.text = tempItem.lastname
+        commentTextField.text = tempItem.comment
+        
         
         let dateString = tempItem.birthdayDate
         let df = DateFormatter()
@@ -57,6 +62,7 @@ class DetailViewController: UIViewController {
             firstnameTextField.isUserInteractionEnabled = true
             lastnameTextField.isUserInteractionEnabled = true
             datePicker.isUserInteractionEnabled = true
+            commentTextField.isUserInteractionEnabled = true
             
         }
         else if(EditButton.titleLabel?.text == "Save")
@@ -92,6 +98,8 @@ class DetailViewController: UIViewController {
             
             tempItem.birthdayDate = selectedDate
             
+            tempItem.comment = commentTextField.text
+            
             
             tempItem.SaveBirthday(item: tempItem, completion: {(result: Bool) in
                 
@@ -100,6 +108,9 @@ class DetailViewController: UIViewController {
                 self.firstnameTextField.isUserInteractionEnabled = false
                 self.lastnameTextField.isUserInteractionEnabled = false
                 self.datePicker.isUserInteractionEnabled = false
+                self.commentTextField.isUserInteractionEnabled = false
+                
+                //Change in notifications aswell
                 
                 self.navigationController?.popViewController(animated: true)
             })

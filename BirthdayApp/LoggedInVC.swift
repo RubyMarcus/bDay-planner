@@ -8,9 +8,15 @@
 
 import UIKit
 import FirebaseAuth
+import UserNotifications
+
 
 class LoggedInVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+    
+    static var reminders = [Reminder]()
+    let dateFormatter = DateFormatter()
+    let locale = NSLocale.autoupdatingCurrent
+    
     var BirthdayList = BirthdayItem()
     var testCell = BirthdayTableViewCell()
     
@@ -19,8 +25,18 @@ class LoggedInVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.BirthdayTableView.allowsMultipleSelectionDuringEditing = false
+        
+        if let savedReminders = loadReminders() {
+            LoggedInVC.reminders += savedReminders
+            
+        }
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    // Notification
+    
     
     override func viewDidAppear(_ animated: Bool) {
         
@@ -39,6 +55,18 @@ class LoggedInVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                 self.BirthdayTableView.reloadData()
             })
         }
+        
+        dateFormatter.locale = locale
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
+        
+        for item in LoggedInVC.reminders {
+            print(item.name)
+            print(item.notification)
+            print(item.time)
+        }
+        
+        
         
     }
     
@@ -63,6 +91,46 @@ class LoggedInVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        let tempBirthdayItem = BirthdayItem()
+        
+        tempBirthdayItem.fbKey = BirthdayList.item![indexPath.row].fbKey
+        
+        self.BirthdayList.deleteItem(item: tempBirthdayItem, completion: {(result : Bool) in
+            
+            self.BirthdayList.item?.removeAll()
+            
+            self.BirthdayList.LoadData(completion: {(result : Bool) in
+                
+                if(LoggedInVC.reminders.count != nil)
+                {
+                    LoggedInVC.reminders.remove(at: indexPath.row)
+                    
+                    LoggedInVC.saveReminders()
+                    
+                }
+                
+                self.BirthdayTableView.reloadData()
+            })
+            
+        })
+        
+        
+    }
+    
+    static func saveReminders () {
+        let isSuccesfulSave = NSKeyedArchiver.archiveRootObject(LoggedInVC.reminders, toFile: Reminder.ArchiveUrl.path)
+        if (isSuccesfulSave) { print ("Saved Reminders Succesfully")}
+        else { print("Failed to Save reminders :(")}
+    }
+    
+    func loadReminders () -> [Reminder]? {
+        
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Reminder.ArchiveUrl.path) as? [Reminder]
+        
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "BirthdayCell") as! BirthdayTableViewCell
@@ -77,19 +145,36 @@ class LoggedInVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         var truncated = birthdayDate.substring(to: endIndex)
         
-        truncated = truncated + GetCurrentYear()
+        var currentBirthdayYear = truncated + GetCurrentYear()
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
-        guard let date = dateFormatter.date(from: truncated) else {
+        guard var date = dateFormatter.date(from: currentBirthdayYear) else {
             fatalError("ERROR: Date conversion failed due to mismatched format.")
         }
         
         let calendar = NSCalendar.current
         
         // Replace the hour (time) of both dates with 00:00
-        let date1 = calendar.startOfDay(for: date)
+        var date1 = calendar.startOfDay(for: date)
         let date2 = calendar.startOfDay(for: Date())
+        
+        if(date2 > date1)
+        {
+            let currentYear = Int(GetCurrentYear())! + 1
+            
+            print(currentYear)
+            
+            truncated = truncated + String(currentYear)
+            
+            
+            
+            guard let datetest = dateFormatter.date(from: truncated) else {
+                fatalError("ERROR: Date conversion failed due to mismatched format.")
+            }
+            
+            date1 = datetest
+        }
         
         let components = calendar.dateComponents([.day], from: date1, to: date2)
         
@@ -101,28 +186,47 @@ class LoggedInVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         var age = Int(GetCurrentYear())! % Int(birthdayYear)!
         
-        /*
-        if(postiveDays != 0)
+        var strAge = ""
+        
+        if(postiveDays == 0)
         {
-            switch age {
-            case 0:
+            cell.ageLabel.text = ""
+        }
+        else if (age == 0){
+            
+            strAge = "year"
+            
+            if (age == 0)
+            {
                 age = 1
-                strYear = "year"
-            case 2...200:
-                strYear = "years"
-            default:
-                strYear = "years"
             }
             
-            cell.ageNDayLabel.text = "\(age) \(strYear) in \(postiveDays) \(strDay)"
+            cell.ageLabel.text = "\(age) \(strAge)"
         }
-        else
-        {
-            cell.ageNDayLabel.text = strDay
+        else {
+            
+            strAge = "years"
+            
+            if (age == 0)
+            {
+                age = 1
+            }
+            
+            cell.ageLabel.text = "\(age) \(strAge)"
+            
         }
-        */
         
-        cell.daysLabel.text = "in \(postiveDays) \(getstrDays(days: Int(postiveDays)))"
+        let getStrDay = getstrDays(days: Int(postiveDays))
+        
+        if(getStrDay == "Happy Birthday")
+        {
+            cell.ageLabel.text = "Happy"
+            cell.daysLabel.text = "Birthday"
+        }
+        else {
+            
+                 cell.daysLabel.text = "in \(postiveDays) \(getStrDay)"
+        }
         
         return cell
         

@@ -12,12 +12,15 @@ import FirebaseAuth
 class ViewController: UIViewController {
     
     
-    @IBOutlet weak var notesTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+   
+        //let stringKey = UserDefaults.standard()
+        //notesTextField.text = stringKey.stringfo
+    
     }
     
     
@@ -62,7 +65,7 @@ class ViewController: UIViewController {
 */
     
     @IBAction func saveText(_ sender: Any) {
-        saveText(notesTextField)
+        //saveText(notesTextField)
     }
     
 }
