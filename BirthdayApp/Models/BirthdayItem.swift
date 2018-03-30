@@ -19,6 +19,7 @@ class BirthdayItem {
     var fbKey = ""
     var birthdayDate = ""
     var comment = ""
+    var numberRow = 0
     
     var item : [BirthdayItem]?
 

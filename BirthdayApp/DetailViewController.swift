@@ -10,9 +10,6 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
-    @IBOutlet weak var txtAddText: UITextField!
-    @IBOutlet weak var txtList: UITextView!
-    
     
     @IBOutlet weak var firstnameTextField: UITextField!
     @IBOutlet weak var lastnameTextField: UITextField!
@@ -31,7 +28,16 @@ class DetailViewController: UIViewController {
     
         firstnameTextField.text = tempItem.firstname
         lastnameTextField.text = tempItem.lastname
-        commentTextField.text = tempItem.comment
+        
+        if tempItem.comment.isEmpty {
+            print("Ooops, it's empty")
+        }
+        else {
+            print("No, it's not empty")
+            commentTextField.text = tempItem.comment
+        }
+        
+        
         
         
         let dateString = tempItem.birthdayDate
@@ -112,10 +118,48 @@ class DetailViewController: UIViewController {
                 
                 //Change in notifications aswell
                 
-                self.navigationController?.popViewController(animated: true)
+                let gregorian = Calendar(identifier: .gregorian)
+                var components = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: self.datePicker.date)
+                
+                components.year = Int(self.GetCurrentYear()) // test
+                components.hour = 08
+                components.minute = 00
+                components.second = 00
+                
+                let date = gregorian.date(from: components)!
+                
+                print("The Date: \(date)")
+                
+                let notification = UILocalNotification()
+                notification.alertTitle = "Birthday Reminder"
+                notification.alertBody = "Today is \(self.tempItem.firstname) \(self.tempItem.lastname)'s birthday!"
+                notification.fireDate = date
+                notification.soundName = UILocalNotificationDefaultSoundName
+                
+                print(self.tempItem.numberRow)
+                
+                LoggedInVC.reminders[self.tempItem.numberRow].name = "\(self.tempItem.firstname) \(self.tempItem.lastname)"
+                LoggedInVC.reminders[self.tempItem.numberRow].time = date
+                LoggedInVC.reminders[self.tempItem.numberRow].notification = notification
+                
+                LoggedInVC.saveReminders(completion:  {(result: Bool) in
+                    
+                        self.navigationController?.popViewController(animated: true)
+                })
             })
             
         }
+    }
+    
+    func GetCurrentYear () -> String
+    {
+        
+        let date = Date()
+        
+        let yearString = date.getYear()
+        
+        return yearString
+        
     }
     
 }

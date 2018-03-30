@@ -56,6 +56,8 @@ class LoggedInVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             })
         }
         
+        loadReminders()
+        
         dateFormatter.locale = locale
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .short
@@ -103,13 +105,17 @@ class LoggedInVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             
             self.BirthdayList.LoadData(completion: {(result : Bool) in
                 
-                if(LoggedInVC.reminders.count != nil)
+                if(LoggedInVC.reminders.isEmpty == false)
                 {
                     LoggedInVC.reminders.remove(at: indexPath.row)
                     
-                    LoggedInVC.saveReminders()
                     
                 }
+                
+                LoggedInVC.saveReminders( completion: {(result: Bool) in
+                    
+                    
+                })
                 
                 self.BirthdayTableView.reloadData()
             })
@@ -119,10 +125,13 @@ class LoggedInVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
     }
     
-    static func saveReminders () {
+    static func saveReminders (completion: @escaping (_ result: Bool) -> Void) {
         let isSuccesfulSave = NSKeyedArchiver.archiveRootObject(LoggedInVC.reminders, toFile: Reminder.ArchiveUrl.path)
+
         if (isSuccesfulSave) { print ("Saved Reminders Succesfully")}
         else { print("Failed to Save reminders :(")}
+        
+        completion(true)
     }
     
     func loadReminders () -> [Reminder]? {
@@ -247,6 +256,8 @@ class LoggedInVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         performSegue(withIdentifier: "detail", sender: indexPath.row)
+        
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -254,6 +265,8 @@ class LoggedInVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         if(segue.identifier == "detail")
         {
             let dest = segue.destination as! DetailViewController
+            
+            BirthdayList.item![sender as! Int].numberRow = sender as! Int
             
             dest.tempItem = BirthdayList.item![sender as! Int]
         }

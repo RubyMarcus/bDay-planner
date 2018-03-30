@@ -75,7 +75,7 @@ class SaveBirthdayViewController: UIViewController {
             // Change the time to 9:30:00 in your locale
             // If date is grater than current date change year
             
-            components.year = 2018
+            components.year = Int(self.GetCurrentYear()) // test
             components.hour = 08
             components.minute = 00
             components.second = 00
@@ -98,9 +98,23 @@ class SaveBirthdayViewController: UIViewController {
             
             LoggedInVC.reminders.append(self.reminder!)
             
-            LoggedInVC.saveReminders()
+            LoggedInVC.saveReminders(completion: {(result: Bool) in
+                
+                
+            })
         })
         
+        
+    }
+    
+    func GetCurrentYear () -> String
+    {
+        
+        let date = Date()
+        
+        let yearString = date.getYear()
+        
+        return yearString
         
     }
 
