@@ -171,23 +171,28 @@ class LoggedInVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         print(date1)
         print(date2)
         
-        var currentYear = 0
+        var age = 0
         
         if(date1 < date2)
         {
-            currentYear = Int(GetCurrentYear())! + 1
+            let currentYear = Int(GetCurrentYear())! + 1
             
             print(currentYear)
             
             truncated = truncated + String(currentYear)
             
-            
+            age = currentYear % Int(birthdayYear)!
             
             guard let datetest = dateFormatter.date(from: truncated) else {
                 fatalError("ERROR: Date conversion failed due to mismatched format.")
             }
             
             date1 = datetest
+        }
+        else
+        {
+            age = Int(GetCurrentYear())! % Int(birthdayYear)!
+            
         }
         
         let components = calendar.dateComponents([.day], from: date1, to: date2)
@@ -197,8 +202,6 @@ class LoggedInVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         let days = components.day!
         
         let postiveDays = days.magnitude
-        
-        var age = currentYear % Int(birthdayYear)!
         
         var strAge = ""
         

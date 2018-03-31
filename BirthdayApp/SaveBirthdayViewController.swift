@@ -75,17 +75,17 @@ class SaveBirthdayViewController: UIViewController {
             // Change the time to 9:30:00 in your locale
             // If date is grater than current date change year
             
-            components.year = Int(self.GetCurrentYear()) // test
-            components.hour = 08
-            components.minute = 00
-            components.second = 00
+            components.year = 2018 // test
+            components.hour = 20
+            components.minute = 05
+            components.second = 20
             
             let date = gregorian.date(from: components)!
             
             let name = "\(tempItem.firstname) \(tempItem.lastname)"
             
             let time = date
-            
+
             let notification = UILocalNotification()
             notification.alertTitle = "Birthday Reminder"
             notification.alertBody = "Today is \(tempItem.firstname) \(tempItem.lastname)'s birthday!"

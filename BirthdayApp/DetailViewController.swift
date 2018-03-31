@@ -135,12 +135,19 @@ class DetailViewController: UIViewController {
                 notification.alertBody = "Today is \(self.tempItem.firstname) \(self.tempItem.lastname)'s birthday!"
                 notification.fireDate = date
                 notification.soundName = UILocalNotificationDefaultSoundName
+
                 
                 print(self.tempItem.numberRow)
                 
-                LoggedInVC.reminders[self.tempItem.numberRow].name = "\(self.tempItem.firstname) \(self.tempItem.lastname)"
-                LoggedInVC.reminders[self.tempItem.numberRow].time = date
-                LoggedInVC.reminders[self.tempItem.numberRow].notification = notification
+                
+                if LoggedInVC.reminders.isEmpty{
+                    print("Ooops, it's empty")
+                }
+                else {
+                        LoggedInVC.reminders[self.tempItem.numberRow].name = "\(self.tempItem.firstname) \(self.tempItem.lastname)"
+                        LoggedInVC.reminders[self.tempItem.numberRow].time = date
+                        LoggedInVC.reminders[self.tempItem.numberRow].notification = notification
+                }
                 
                 LoggedInVC.saveReminders(completion:  {(result: Bool) in
                     
