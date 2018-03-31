@@ -168,9 +168,14 @@ class LoggedInVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         var date1 = calendar.startOfDay(for: date)
         let date2 = calendar.startOfDay(for: Date())
         
-        if(date2 > date1)
+        print(date1)
+        print(date2)
+        
+        var currentYear = 0
+        
+        if(date1 < date2)
         {
-            let currentYear = Int(GetCurrentYear())! + 1
+            currentYear = Int(GetCurrentYear())! + 1
             
             print(currentYear)
             
@@ -193,7 +198,7 @@ class LoggedInVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         let postiveDays = days.magnitude
         
-        var age = Int(GetCurrentYear())! % Int(birthdayYear)!
+        var age = currentYear % Int(birthdayYear)!
         
         var strAge = ""
         
