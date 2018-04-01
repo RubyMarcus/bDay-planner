@@ -107,9 +107,11 @@ class LoggedInVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                 
                 if(LoggedInVC.reminders.isEmpty == false)
                 {
-                    LoggedInVC.reminders.remove(at: indexPath.row)
-                    
-                    
+                    if(indexPath.row <= LoggedInVC.reminders.count)
+                    {
+                        LoggedInVC.reminders.remove(at: indexPath.row)
+                        
+                    }
                 }
                 
                 LoggedInVC.saveReminders( completion: {(result: Bool) in

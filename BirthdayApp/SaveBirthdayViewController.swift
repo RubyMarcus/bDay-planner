@@ -74,11 +74,16 @@ class SaveBirthdayViewController: UIViewController {
             
             // Change the time to 9:30:00 in your locale
             // If date is grater than current date change year
-            
-            components.year = 2018 // test
-            components.hour = 20
-            components.minute = 05
-            components.second = 20
+            if(self.datePicker.date > Date())
+            {
+                components.year = Int(self.GetCurrentYear())
+            }
+            else {
+                components.year = Int(self.GetCurrentYear())! + 1
+            }
+            components.hour = 08
+            components.minute = 00
+            components.second = 00
             
             let date = gregorian.date(from: components)!
             
